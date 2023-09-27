@@ -1,0 +1,48 @@
+{% extends 'usuarios/base.html' %}
+{% block conteudo_app %}
+<form class="row container" action="{% url 'listagem_usuarios' %}" method="post" >
+        {% csrf_token %}
+      <center>       
+ 
+        <h5>Preencha suas informacões</h5>
+           
+            <div class="center">
+                <div class="input-field col s6">
+                  <input name="nome" placeholder="Nome" id="Nome" type="text" required>
+                  <label for="nome">Nome</label>
+                </div>
+
+                <div class="input-field col s6">
+                    <input name="sobrenome" placeholder="Sobrenome" id="sobrenome" type="text" required>
+                    <label for="sobrenome">Sobrenome</label>
+                </div>
+
+                <div class="input-field col s6">
+                    <input name="telefone" placeholder="81900000000" id="Telefone" type="text" minLength="11 "maxLength="11" required onkeypress="return onlynumber();" required>
+                    <label for="telefone">Telefone</label>
+                </div>
+
+                <div class="input-field col s6">
+                    <input name="email" placeholder="Email" id="email" type="email" required>
+                    <label for="email">Email</label>
+                </div>
+            
+                <button type="clear" class="btn red">limpar</button>
+                <button type="submit" class="btn blue">enviar</button>
+ </div>               
+</form>
+<script type="text/javascript">
+  function onlynumber(evt) {
+     var theEvent = evt || window.event;
+     var key = theEvent.keyCode || theEvent.which;
+     key = String.fromCharCode( key );
+     //var regex = /^[0-9.,]+$/;
+     var regex = /^[0-9.]+$/;
+     if( !regex.test(key) ) {
+        theEvent.returnValue = false;
+        if(theEvent.preventDefault) theEvent.preventDefault();
+     }
+  }
+  </script>
+
+{% endblock %}

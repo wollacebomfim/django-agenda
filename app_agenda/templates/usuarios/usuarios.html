@@ -1,0 +1,27 @@
+{% extends 'usuarios/base.html' %}
+{% block conteudo_app %}
+<body>
+    <div class="row container">
+        <table>
+<tr>
+<th>id</th>
+<th>Nome</th>
+<th>Sobrenome</th>
+<th>Email</th>
+<th>Telefone</th>
+</tr>
+
+{% for usuario in usuarios %}
+    <tr>
+        <td>{{usuario.id_usuario}}</td>
+        <td>{{usuario.nome}}</td>
+        <td>{{usuario.sobrenome}}</td>
+        <td>{{usuario.telefone}}</td>
+        <td>{{usuario.email}}</td>
+        
+
+    </tr>
+ {% endfor %}
+        </table>
+    </div>
+{% endblock %}
